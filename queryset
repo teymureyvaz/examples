@@ -1,0 +1,7 @@
+from django.db.models import Q
+
+objects = Model.objects.filter(amount != 5300,retired == True)
+
+###########
+
+objects = Model.objects.filter(Q(amount != 5300) & Q(retired == True))
