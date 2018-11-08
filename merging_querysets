@@ -1,0 +1,38 @@
+######
+#models
+######
+
+class School(models.Model):
+    name = models.CharField(max_length=200) 
+    address = models.CharField(max_length=200)
+ 
+class University(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    
+###############
+#using itertools
+###############
+from itertools import chain
+
+schools = School.objects.all()
+universities = University.objects.all()
+
+merged = list(chain(schools,universities))
+
+
+###########
+#using union
+###########
+
+
+schools = School.objects.all()
+universities = University.objects.all()
+
+merged =schools.union(universities)
+
+########
+#bu metodun ishlemesi ucun her iki modelin eyni saheleri olmalidir
+########
+
+
